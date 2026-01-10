@@ -6,7 +6,7 @@ A Windows Forms desktop application for managing student records built with C# a
 ![C#](https://img.shields.io/badge/C%23-7.3-green)
 ![Windows Forms](https://img.shields.io/badge/UI-Windows%20Forms-orange)
 
-## ?? Features
+##  Features
 
 - **CRUD Operations**: Add, Update, Delete, and View student records
 - **Search**: Filter students by name
@@ -16,11 +16,9 @@ A Windows Forms desktop application for managing student records built with C# a
 - **Multithreading**: Async data loading with status indicator
 - **Error Handling**: User-friendly error messages
 
-## ??? Screenshots
 
-*Add screenshots of your running application here*
 
-## ??? Project Structure
+##  Project Structure
 
 ```
 WindowsFormsApp1VPL/
@@ -32,7 +30,7 @@ WindowsFormsApp1VPL/
 ??? students.json           # Data storage (created at runtime)
 ```
 
-## ?? Classes
+##  Classes
 
 ### Student
 ```csharp
@@ -48,7 +46,7 @@ public class Student
 - `Load()` - Reads student data from JSON file
 - `Save()` - Writes student data to JSON file
 
-## ??? Technologies Used
+##  Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
@@ -59,7 +57,7 @@ public class Student
 | LINQ | Search/Filter Operations |
 | Task.Run() | Multithreading |
 
-## ?? How to Run
+##  How to Run
 
 1. Clone the repository:
    ```bash
@@ -72,7 +70,7 @@ public class Student
 
 4. Run the application (F5)
 
-## ?? Usage
+##  Usage
 
 | Action | How To |
 |--------|--------|
@@ -82,14 +80,14 @@ public class Student
 | **Search** | Enter name in search box ? Click "Search" |
 | **Count** | Click "Count" (Yellow) to see total students |
 
-## ?? UI Color Scheme
+##  UI Color Scheme
 
 - ?? **Green** - Add (Success action)
 - ?? **Blue** - Update/Search (Primary action)
 - ?? **Red** - Delete (Danger action)
 - ?? **Yellow** - Count (Info action)
 
-## ? Requirements Covered
+##  Requirements Covered
 
 - [x] Data Management (CRUD)
 - [x] OOP Structure (Classes, Properties, Constructors, Encapsulation)
@@ -99,13 +97,13 @@ public class Student
 - [x] Multithreading (Background loading)
 - [x] Error Handling (Try/Catch)
 
-## ?? License
+##  License
 
 This project is for educational purposes.
 
-## ?? Author
+##  Author
 
-*Your Name*
+*Muhammad Anas Muqeem*
 
 ---
 *Visual Programming Course Project*
