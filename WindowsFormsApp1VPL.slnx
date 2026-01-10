@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Student.cs" />
+    <File Path="StudentRepository.cs" />
+  </Folder>
+  <Project Path="WindowsFormsApp1VPL/WindowsFormsApp1VPL.csproj" Id="9b0de1b4-4441-4cd1-ac6e-611a09578b3c" />
+</Solution>

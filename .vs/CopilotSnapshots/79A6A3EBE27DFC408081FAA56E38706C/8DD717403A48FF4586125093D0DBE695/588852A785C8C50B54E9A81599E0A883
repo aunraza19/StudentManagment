@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace VPLAssistPlus
+{
+    public partial class MainForm : Form
+    {
+        List<Student> students = new List<Student>();
+
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+            lblStatus.Text = "Loading...";
+            await Task.Run(() => students = StudentRepository.Load());
+            dgvStudents.DataSource = students;
+            lblStatus.Text = "Loaded Successfully";
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                students.Add(new Student(
+                    int.Parse(txtId.Text),
+                    txtName.Text,
+                    double.Parse(txtMarks.Text)));
+
+                RefreshGrid();
+                StudentRepository.Save(students);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid Input!");
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtId.Text);
+            Student s = students.FirstOrDefault(x => x.Id == id);
+            if (s != null)
+            {
+                s.Name = txtName.Text;
+                s.Marks = double.Parse(txtMarks.Text);
+                RefreshGrid();
+                StudentRepository.Save(students);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvStudents.CurrentRow == null) return;
+            int id = (int)dgvStudents.CurrentRow.Cells[0].Value;
+            students.RemoveAll(s => s.Id == id);
+            RefreshGrid();
+            StudentRepository.Save(students);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvStudents.DataSource = students
+                .Where(s => s.Name.ToLower().Contains(txtSearch.Text.ToLower()))
+                .ToList();
+        }
+
+        private void btnCount_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Total Students: " + students.Count);
+        }
+
+        void RefreshGrid()
+        {
+            dgvStudents.DataSource = null;
+            dgvStudents.DataSource = students;
+        }
+    }
+}

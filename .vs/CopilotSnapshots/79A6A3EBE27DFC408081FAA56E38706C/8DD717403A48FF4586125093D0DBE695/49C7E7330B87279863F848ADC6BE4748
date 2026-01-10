@@ -1,0 +1,29 @@
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
+namespace VPLAssistPlus
+{
+    public static class StudentRepository
+    {
+        private static string filePath = "students.json";
+
+        public static List<Student> Load()
+        {
+            if (!File.Exists(filePath))
+                return new List<Student>();
+
+            string json = File.ReadAllText(filePath);
+            return JsonSerializer.Deserialize<List<Student>>(json);
+        }
+
+        public static void Save(List<Student> students)
+        {
+            string json = JsonSerializer.Serialize(students, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+            File.WriteAllText(filePath, json);
+        }
+    }
+}
